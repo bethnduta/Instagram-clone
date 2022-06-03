@@ -34,7 +34,7 @@ Install dependencies that will create an environment for the app to run pip inst
 * CREATE DATABASE instagram;
 
 * env file
-Create .env file and paste the following filling where necessary: SECRET_KEY = <'secret_key>' DBNAME = 'gallery' USER = '' PASSWORD = '' DEBUG = True
+Create .env file and paste the following filling where necessary: SECRET_KEY = <'secret_key>' DBNAME = 'instagram' USER = '' PASSWORD = '' DEBUG = True
 
 * Run initial migration
 - python 3.10.4 manage.py runmigrations instagram
