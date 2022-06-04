@@ -70,3 +70,12 @@ header{
     padding-left: 15px;
     font-size: 25px;
 }
+
+.content_container{
+    background-color: #FAFAFA;
+    padding-top: 50px;
+    position: absolute;
+    width: 100%;
+    top: 83px;
+    left: 0px;
+}

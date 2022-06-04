@@ -2,7 +2,26 @@
 
 {% block content %}
     {% for post in posts %}
-    <p>{{post.author}}</p>
-    <p>{{post.caption}}</p>
+        <div class="card">
+            <div class="card_header">
+                <div class="profile_image">
+
+                </div>
+                <div class="post_info">
+                    <div class="post_name">{{post.author}}</div>
+                    <div class="post_location">Nairobi</div>
+                </div>
+                <div class="post_options"><i class="fas fa-ellipsis-h"></i></div>
+            </div>
+            <div class="post_image">
+                <img src="https://cdn.osxdaily.com/wp-content/uploads/2017/02/instagram-icon.jpg" alt="">
+            </div>
+            <div class="engagement">
+                <a href=""><i class="fa-solid fa-square-heart"></i></a>
+                <a href=""><i class="fa-solid fa-comment"></i></a>
+                <a href=""><i class="fa-solid fa-arrow-up-from-square"></i></a>
+                <a href=""><i class="fa-solid fa-bookmark"></i></a>
+            </div>
+        </div>
     {% endfor %}
 {% endblock %}
