@@ -47,7 +47,8 @@ python 3.10.4 manage.py runserver
 * Current Bugs
 There are no known bugs as of now. Incase you find one feel free to solve the bug and push the changes
 
-* SUPPORT AND CONTACT DETAILS
+## SUPPORT AND CONTACT DETAILS
+
 Incase you want to contribute to the project fork the repository and make changes. Incase you wish to brainstorm any idea concerning the project kindly keep in touch with me through my;
 * email[bethnduta05@gmail.com]
 * slack[bethnduta]
