@@ -14,7 +14,9 @@
                 <div class="post_options"><i class="fas fa-ellipsis-h"></i></div>
             </div>
             <div class="post_image">
-                <img src="https://cdn.osxdaily.com/wp-content/uploads/2017/02/instagram-icon.jpg" alt="">
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="">
+                {% endif %}    
             </div>
             <div class="engagement">
                 <a href=""><i class="fa-solid fa-square-heart"></i></a>
