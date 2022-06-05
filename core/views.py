@@ -17,6 +17,7 @@ class postCreateView(CreateView):
     template_name = 'insta/post_create.html'
     form_class = postForm
     queryset=post.objects.all()
+    succes_url='/'
 
     def form_valid(self, form):
         print(form.cleaned_data)
