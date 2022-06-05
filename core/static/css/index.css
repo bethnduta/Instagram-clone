@@ -79,3 +79,22 @@ header{
     top: 83px;
     left: 0px;
 }
+
+.card{
+    background-color: #fff;
+    border-radius: 4px;
+    border: .8px solid #ccc;
+    margin-bottom: 60px;
+    height: auto;
+    width: 614px;
+    margin: 0 auto;
+}
+
+.card-header{
+    padding: 10px;
+}
+
+.card-header a{
+    text-decoration: none;
+    color: black;
+}
