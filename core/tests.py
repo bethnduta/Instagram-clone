@@ -1,5 +1,6 @@
 from django.test import TestCase
 from . models import post
+from django.contrib.auth.models import User
 # Create your tests here.
 class PostTest(TestCase):
     def test_str(self):
