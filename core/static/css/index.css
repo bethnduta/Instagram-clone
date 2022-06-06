@@ -163,9 +163,10 @@ header{
 
 .likes a{
     text-decoration: none;
-    font-size: 15px;
+    font-size: 20px;
     color:#111;
     margin: 0px 0px 8px;
+    font-weight: 600;
     padding: 0px 21px;
 }
 
