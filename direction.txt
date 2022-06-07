@@ -1,0 +1,5 @@
+create an app called accounts(handle all authentications; login and signup, profile,view,update)
+
+another app
+
+core(posts,like,comments,share,update,delete,detailedview)

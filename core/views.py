@@ -12,6 +12,7 @@ class postListView(ListView):
     template_name = 'insta/index.html'
     context_object_name = 'posts'
     queryset=post.objects.all().filter(created_date__lte=timezone.now()).order_by('-created_date')
+    
 
 
 class postCreateView(CreateView):

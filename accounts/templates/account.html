@@ -1,0 +1,48 @@
+{% load static %}
+<html lang="en">
+    
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+    <title>Instagra.</title>
+</head>
+<body>
+    <section class="wrapper">
+        <div class="left">
+            <img src="{% static 'img/phones.png' %}" alt="phone">
+            <img src="{% static 'img/screen.jpg' %}" alt="" class="screen">
+        </div>
+        <div class="right">
+            <div class="panel Login">
+                <img src="{% static 'img/instagram-logo.png' %}" alt="logo" id="logo">
+                <form >
+                    <input type="text" class="input-box" name="username" required placeholder="phone number, username, or email">
+                    <input type="password" class="input-box" name="password" required placeholder="password">
+                    <input type="submit" class="button" name="login" value="Log In" >
+                    <div class="divider">
+                        <div class="line"></div>
+                        <p>OR</p>
+                        <div class="line"></div>
+                    </div>
+                    <a href="#" class="fb">Log in with Facebook</a>
+                    <a href="#" class="forgot">Forgot Password?</a>
+                </form>
+            </div>
+            <div class="panel signup">
+                <p>Don't have an account?</p>
+                <a href="#">signup</a>
+            </div>
+            <div class="apps">
+                <p>Get the app.</p>
+                <div class="app-stores">
+                    <img src="{% static 'img/appstore.svg' %}" alt="app store">
+                    <img src="{% static 'img/play-store.svg' %}" alt="play store">
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
