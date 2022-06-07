@@ -2,6 +2,8 @@
 BETH NDUTA
 
 ## INSTAGRAM CLONE APP
+![image](https://user-images.githubusercontent.com/85553801/172369309-986c45f3-c166-4571-bbfa-ef6f56e253ea.png)
+
 
 ## DESCRIPTION OF THE PROJECT
 As a user of the application you can:
