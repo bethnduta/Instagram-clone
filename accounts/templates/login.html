@@ -1,0 +1,46 @@
+{% load static %}
+
+<html lang="en">
+    {% load crispy_forms_tags %}
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>Instagra.</title>
+</head>
+<body>
+    <section class="wrapper">
+        <div class="left">
+            <img src="{% static 'img/phones.png' %}" alt="phone">
+            <img src="{% static 'img/screen.jpg' %}" alt="" class="screen">
+        </div>
+        <div class="right">
+            <div class="panel Login">
+                <img src="{% static 'img/instagram-logo.png' %}" alt="logo" id="logo">
+                <div class="card-body mb-3 mr-3 ml-3" >
+
+                        <form action="" method="post" novalidate class="text-center">
+                            {% csrf_token%}
+                            {{ form|crispy}}
+                            <button type="submit" class="btn btn-primary btn-sm D-block mt-3"> Log In</button>
+                        </form>
+                </div>
+            </div>
+            <div class="panel signup">
+                <p>Don't have an account?</p>
+                <a href="{% url 'register' %}">signup</a>
+            </div>
+            <div class="apps">
+                <p>Get the app.</p>
+                <div class="app-stores">
+                    <img src="{% static 'img/appstore.svg' %}" alt="app store">
+                    <img src="{% static 'img/play-store.svg' %}" alt="play store">
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
