@@ -1,21 +1,23 @@
-{% load static %}
+{% extends 'base.html' %}
 {% load crispy_forms_tags %}
-<div class="container" style="justify-content: center; align-items:center;">
-    <h3>Register here</h3>
-<hr>
-
-<form action="" method="POST">
-    {% csrf_token %}
-    <div class="card-body mb-3 mr-3 ml-3" style="height: 30%">
-        <p class="text-center">Sign up to see photos and videos from your friends.
-        </p>
-        <form action="" method="post" novalidate class="reg">
-            {% csrf_token%}
-            {{ form|crispy}}
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary btn-sm mt-3"> Sign up</button>
+{% block content %}
+    <div class="content-section">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Log In</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Login</button>
+                <small class="text-muted ml-2">
+                    <a href="">Forgot Password</a>
+                </small>
+                
             </div>
-    
         </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">Need an account? <a class="ml-2" href="{% url 'register' %}">Sign Up</a></small>
+        </div>
     </div>
-   
+{% endblock %}

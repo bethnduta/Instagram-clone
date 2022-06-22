@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
-from .forms import UserRegistrationForm
+from .forms import UserRegisterForm
 from django.views.generic import (
     ListView,
     CreateView,
@@ -35,20 +35,12 @@ def index(request):
 
 def register(request):
     if request.method == 'POST':
-        form = UserRegistrationForm(request.POST)
+        form = UserRegisterForm(request.POST)
         if form.is_valid():
+            
             form.save()
-
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-
-            messages.success(request, f'Your account has been created. You can log in now!')   
-          
-            return redirect('index')
-    else:
-        form = UserRegistrationForm()
-
-    
-    return render(request, 'registration/register.html', {'form':form})       
+        return redirect('post_create')
+        
+    else:    
+        form = UserRegisterForm()
+    return render(request,'registration/register.html',{'form':form})
