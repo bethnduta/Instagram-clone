@@ -18,7 +18,7 @@ from django.views.generic import (
     )
 
 # Create your views here.
-@login_required(login_url='login')
+
 class postListView(ListView):
     template_name = 'insta/index.html'
     context_object_name = 'posts'
