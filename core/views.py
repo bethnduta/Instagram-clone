@@ -18,6 +18,10 @@ from django.views.generic import (
     )
 
 # Create your views here.
+# @login_required
+# def index(request):
+#     return render(request,'')
+
 
 class postListView(ListView):
     template_name = 'insta/index.html'
@@ -38,9 +42,7 @@ class postCreateView(CreateView):
         form.save()
         return redirect('home')
 
-# @login_required
-# def index(request):
-#     return render(request, 'registration/login.html')    
+    
 @login_required(login_url='login')
 def home(request):
     return render(request, 'insta/index.html')    
