@@ -58,14 +58,7 @@ class Follow(models.Model):
         return f'{self.follower} Follow'
 
        
-# class Comment(models.Model):
-#     content = models.TextField()
-#     image = models.ForeignKey(Post, on_delete=models.CASCADE)
-#     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-
-#     def __str__(self) -> str:
-#         return f"{self.content}"
 
 
 # class Like(models.Model):

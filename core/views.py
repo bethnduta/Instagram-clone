@@ -1,10 +1,12 @@
+from distutils.log import info
+from multiprocessing import context
 from core.forms import postForm
 from .models import *
 from django.utils import timezone
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegisterForm,UserUpdateForm,ProfileUpdateForm
+from .forms import  UserRegisterForm,UserUpdateForm,ProfileUpdateForm
 
 
 
@@ -16,7 +18,7 @@ from django.views.generic import (
     )
 
 # Create your views here.
-
+@login_required(login_url='login')
 class postListView(ListView):
     template_name = 'insta/index.html'
     context_object_name = 'posts'
@@ -36,12 +38,12 @@ class postCreateView(CreateView):
         form.save()
         return redirect('home')
 
+# @login_required
+# def index(request):
+#     return render(request, 'registration/login.html')    
 @login_required(login_url='login')
-def index(request):
-    return render(request, 'registration/login.html')    
-
 def home(request):
-    return render(request, 'insta/post_create.html')    
+    return render(request, 'insta/index.html')    
 
 def register(request):
     if request.method == 'POST':
@@ -128,4 +130,3 @@ def like_post(request, id):
             is_liked = True
     return HttpResponseRedirect(reverse('home')) 
 
-       
