@@ -1,5 +1,5 @@
 from django import forms
-from . models import post
+from . models import Post,Profile
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from crispy_forms.helper import FormHelper
@@ -11,7 +11,7 @@ class postForm(forms.ModelForm):
     helper.form_method = 'POST'
     helper.add_input(Submit('Post', 'Post', css_class='btn-primary'))
     class Meta:
-        model = post
+        model = Post
         fields = [
             'image', 
             'caption'
@@ -23,3 +23,15 @@ class UserRegisterForm(UserCreationForm):
     class Meta:
         model=User
         fields=['username','email','password1','password2']
+
+class UserUpdateForm(forms.ModelForm):
+    email = forms.EmailField()
+
+    class Meta:
+        model=User
+        fields=['username','email']        
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model=Profile
+        fields=['image']  

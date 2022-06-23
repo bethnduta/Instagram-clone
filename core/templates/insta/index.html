@@ -1,6 +1,7 @@
-{% extends 'insta/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<head><link rel="stylesheet" href="{% static 'css/index.css' %}"></head>
     {% for post in posts %}
         <div class="card">
             <div class="card_header">
@@ -13,9 +14,9 @@
                 </div>
                 <div class="post_options"><i class="fas fa-ellipsis-h"></i></div>
             </div>
-            <div class="post_image">
+            <div class="post_image" class="card-body" style="width: 50px; height:80px;">
                 {% if post.image %}
-                    <img src="{{ post.image.url }}" alt="">
+                    <img src="{{ post.image.url }}" alt="" id="img">
                 {% endif %}    
             </div>
             <div class="engagement">

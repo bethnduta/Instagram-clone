@@ -6,11 +6,13 @@ from .views import postListView
 from .views import postCreateView
 
 urlpatterns = [
-    path('home/', postListView.as_view(), name='index'),
+    path('', views.index, name='index'),
     path('new/', postCreateView.as_view(), name='post_create'),
-    path('',views.index,name='account'),
     path('register/', views.register, name='register'),
     path('account/', include('django.contrib.auth.urls')),
+    path('unfollow/<to_unfollow>', views.unfollow, name='unfollow'),
+    path('follow/<to_follow>', views.follow, name='follow'),
+    
 ]
 
 
