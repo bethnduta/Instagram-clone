@@ -3,8 +3,9 @@
 {% block content %}
 <head><link rel="stylesheet" href="{% static 'css/index.css' %}"></head>
     {% for post in posts %}
-        <div class="card">
-            <div class="card_header">
+       <div class="" style="margin-bottom: 13px;">
+        <div class="card" style="margin-bottom: 13px;">
+            <div class="card_header " >
                 <div class="profile_image">
 
                 </div>
@@ -14,17 +15,17 @@
                 </div>
                 <div class="post_options"><i class="fas fa-ellipsis-h"></i></div>
             </div>
-            <div class="post_image" class="card" style="width:100px; " >
+            <div class="post_image" class="card" style="width:500px; " >
                 {% if post.image %}
                     <img src="{{ post.image.url }}" class="card-img-top">
                 {% endif %}    
             </div>
            <div class="card-body">
             <div class="engagement">
-                <a href=""><i class="fa-solid fa-heart"></i></a>
-                <a href=""><i class="fa-solid fa-comment"></i></a>
-                <a href=""><i class='fa-solid fa-share'></i></a>
-                <a href=""><i class="fa-solid fa-bookmark"></i></a>
+                <a href=""><i class="fa fa-heart"></i></a>
+                <a href=""><i class="fa fa-comment"></i></a>
+                <a href=""><i class='fa fa-share'></i></a>
+                <a href=""><i class="fa fa-bookmark"></i></a>
             </div>
             <div class="likes">
                 <a href=""><i class='fa fa-thumbs-up'></i>345 likes</a>
@@ -38,5 +39,6 @@
             </div>
            </div>
         </div>
+       </div>
     {% endfor %}
 {% endblock %}
