@@ -87,5 +87,45 @@ def profile(request):
     context={'u_form':u_form,'p_form':p_form}
     return render(request,'insta/profile.html',context)
 
+@login_required
+def userprofile(request, username):
+    user_prof = get_object_or_404(User, username=username)
+    if request.user == user_prof:
+        return redirect('profile', username=request.user.username)
+    user_posts = user_prof.profile.posts.all()
+
+    followers = Follow.objects.filter(followed=user_prof.profile)
+    follow_status = None
+    for follower in followers:
+        if request.user.profile == follower.follower:
+            follow_status = True
+        else:
+            follow_status = False
+    context = {
+        'user_prof': user_prof,
+        'user_posts': user_posts,
+        'followers': followers,
+        'follow_status': follow_status
+    }
+    print(followers)
+    return render(request, 'insta/user_profile.html', context)
+
+def like_post(request, id):
+    post = Post.objects.get(pk=id)
+    is_liked = False
+    user = request.user.profile
+    try:
+            profile = Profile.objects.get(user=user.user)
+            print(profile)
+
+    except Profile.DoesNotExist:
+            raise Http404()
+    if post.likes.filter(id=user.user.id).exists():
+            post.likes.remove(user.user)
+            is_liked = False
+    else:
+            post.likes.add(user.user)
+            is_liked = True
+    return HttpResponseRedirect(reverse('home')) 
 
        

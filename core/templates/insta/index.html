@@ -3,41 +3,47 @@
 {% block content %}
 <head><link rel="stylesheet" href="{% static 'css/index.css' %}"></head>
     {% for post in posts %}
-       <div class="" style="margin-bottom: 13px;">
-        <div class="card" style="margin-bottom: 13px;">
-            <div class="card_header " >
-                <div class="profile_image">
-
+       <div class="container" style="margin-top: 8rem;">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="card" style="margin-bottom: 13px;">
+                    <div class="card_header " >
+                        <div class="profile_image">
+        
+                        </div>
+                        <div class="post_info">
+                            <div class="post_name">{{post.author}}</div>
+                            <div class="post_location">Nairobi</div>
+                        </div>
+                        <div class="post_options"><i class="fas fa-ellipsis-h"></i></div>
+                    </div>
+                    <div class="post_image" class="card" style="width:500px; " >
+                        {% if post.image %}
+                            <img src="{{ post.image.url }}" class="card-img-top">
+                        {% endif %}    
+                    </div>
+                   <div class="card-body">
+                    <div class="engagement">
+                        <a href=""><i class="fa fa-heart"></i></a>
+                        <a href=""><i class="fa fa-comment"></i></a>
+                        <a href=""><i class='fa fa-share'></i></a>
+                        <a href=""><i class="fa fa-bookmark"></i></a>
+                    </div>
+                    <div class="likes">
+                        <a href="{% url 'like_post' post.id %}"><i class='fa fa-thumbs-up'></i> {{post.likes.count}}likes</a>
+                    </div>
+                    <div class="caption">
+                        <a href=""><h2>{{ post.author }}</h2></a>
+                        <span><p>{{ post.caption }}</p></span>
+                    </div>
+                    <div class="time_posted">
+                        {{post.created_date | timesince }} ago
+                    </div>
+                   </div>
                 </div>
-                <div class="post_info">
-                    <div class="post_name">{{post.author}}</div>
-                    <div class="post_location">Nairobi</div>
-                </div>
-                <div class="post_options"><i class="fas fa-ellipsis-h"></i></div>
             </div>
-            <div class="post_image" class="card" style="width:500px; " >
-                {% if post.image %}
-                    <img src="{{ post.image.url }}" class="card-img-top">
-                {% endif %}    
-            </div>
-           <div class="card-body">
-            <div class="engagement">
-                <a href=""><i class="fa fa-heart"></i></a>
-                <a href=""><i class="fa fa-comment"></i></a>
-                <a href=""><i class='fa fa-share'></i></a>
-                <a href=""><i class="fa fa-bookmark"></i></a>
-            </div>
-            <div class="likes">
-                <a href=""><i class='fa fa-thumbs-up'></i>345 likes</a>
-            </div>
-            <div class="caption">
-                <a href=""><h2>{{ post.author }}</h2></a>
-                <span><p>{{ post.caption }}</p></span>
-            </div>
-            <div class="time_posted">
-                {{post.created_date | timesince }} ago
-            </div>
-           </div>
+            <div class="col-md-2"></div>
         </div>
        </div>
     {% endfor %}

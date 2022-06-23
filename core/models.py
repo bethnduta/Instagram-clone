@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from PIL import Image
+from django.http import HttpResponseRedirect
+from django.http.response import Http404
+from django.urls.base import reverse
 
 # Create your models here.
 
@@ -40,8 +43,10 @@ class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', blank=True,null=True)
     caption=models.TextField()
+    likes = models.ManyToManyField(User,related_name="like", blank=True)
     created_date=(models.DateTimeField(default=timezone.now))
 
+    
     def __str__(self):
         return self.caption
         
@@ -51,6 +56,8 @@ class Follow(models.Model):
 
     def __str__(self):
         return f'{self.follower} Follow'
+
+       
 # class Comment(models.Model):
 #     content = models.TextField()
 #     image = models.ForeignKey(Post, on_delete=models.CASCADE)
