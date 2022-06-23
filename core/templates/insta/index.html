@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'insta/base.html' %}
 {% load static %}
 {% block content %}
 <head><link rel="stylesheet" href="{% static 'css/index.css' %}"></head>
@@ -14,11 +14,12 @@
                 </div>
                 <div class="post_options"><i class="fas fa-ellipsis-h"></i></div>
             </div>
-            <div class="post_image" class="card-body" style="width: 50px; height:80px;">
+            <div class="post_image" class="card" style="width:100px; " >
                 {% if post.image %}
-                    <img src="{{ post.image.url }}" alt="" id="img">
+                    <img src="{{ post.image.url }}" class="card-img-top">
                 {% endif %}    
             </div>
+           <div class="card-body">
             <div class="engagement">
                 <a href=""><i class="fa-solid fa-heart"></i></a>
                 <a href=""><i class="fa-solid fa-comment"></i></a>
@@ -35,6 +36,7 @@
             <div class="time_posted">
                 {{post.created_date | timesince }} ago
             </div>
+           </div>
         </div>
     {% endfor %}
 {% endblock %}
