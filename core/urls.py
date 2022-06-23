@@ -7,6 +7,7 @@ from .views import postCreateView
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('home/', views.postListView.as_view(),name='home'),
     path('new/', postCreateView.as_view(), name='post_create'),
     path('register/', views.register, name='register'),
     path('account/', include('django.contrib.auth.urls')),

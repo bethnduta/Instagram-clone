@@ -34,12 +34,14 @@ class postCreateView(CreateView):
         form.save(commit=False)
         form.instance.author = self.request.user
         form.save()
-        return redirect('index')
+        return redirect('home')
 
 @login_required(login_url='login')
 def index(request):
     return render(request, 'registration/login.html')    
 
+def home(request):
+    return render(request, 'insta/post_create.html')    
 
 def register(request):
     if request.method == 'POST':
